@@ -5,12 +5,40 @@
 */
 
 :root.theme-light {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+  --background-image: url(../images/cover-image-light.png);
+  --accent-color: #ff8dcb;
+  --title-color: #ffc2e6;
+  --accent-color-rgb-40: rgb(53, 52, 48, 0.4);
+  --accent-text-color: #353430;
+  --text-color: #353430;
 }
 
-.theme-light .page {
-  /* Вам также нужно будет написать ряд подобных селекторов */
+.theme-light .rec-indicator {
+  display: none;
+}
+
+.theme-light .question-title {
+  color: var(--text-color);
+}
+
+.theme-light .footer > .title {
+  text-shadow: 2px 2px 1px #ff0070;
+}
+
+.theme-light .decorated-zone::before {
+  border-top-color: var(--text-color);
+  border-right-color: var(--text-color);
+}
+
+.theme-light .decorated-zone::after {
+  border-bottom-color: var(--text-color);
+  border-left-color: var(--text-color);
+}
+
+.theme-light .header__theme-menu-button {
+  color: var(--text-color);
+}
+
+.theme-light .header__theme-menu-button {
+  color: var(--text-color);
 }
