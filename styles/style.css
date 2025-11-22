@@ -83,12 +83,18 @@
   text-transform: lowercase;
 }
 
-.header__theme-menu-button:focus {
+.header__theme-menu-button:focus-visible {
+  outline: 0;
   text-decoration: underline;
 }
 
 .header__theme-menu-button:hover {
   border: 1px solid var(--accent-color-rgb-40);
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  outline: 1px solid var(--accent-color);
 }
 
 .header__theme-menu-list {
@@ -183,7 +189,7 @@
   text-decoration: underline;
 }
 
-.main-link:focus {
+.main-link:focus-visible {
   display: inline-block;
   outline: 1px solid var(--text-color);
 }
