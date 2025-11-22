@@ -1,5 +1,127 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
+ /* пока чисто статика под 1024x768, под тёмную тему*/
+
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  width: 1024px;
+  height: 768px;
+  background-image: url(../images/cover-image.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.header {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  padding: 20px 20px 20px 0px;
+}
+
+.decorated-zone {
+  position: relative;
+  margin: 20px 20px;
+  width: 984px;
+  height: 728px;
+}
+
+.rec__indicator {
+  position: absolute;
+  right: 25px;
+  top: 20px;
+  font-family: 'IBM Plex Mono', serif;
+  font-size: 18px;
+  line-height: 25px;
+  text-transform: uppercase;
+  color: #ff0070;
+}
+
+.rec__indicator::after {
+  content: '';
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 9px;
+  width: 9px;
+  height: 9px;
+  background-color: #ff0070;
+  border-radius: 50%;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+
+.decorated-zone::before {
+  top: 20px;
+  right: 20px;
+  border-top: 2px solid #ff0070;
+  border-right: 2px solid #ff0070;
+}
+
+.decorated-zone::after {
+  bottom: 20px;
+  left: 20px;
+  border-bottom: 2px solid #ff0070;
+  border-left: 2px solid #ff0070;
+}
+
+.header__theme-menu {
+  grid-row: 1;
+  justify-self: center;
+  align-self: start;
+}
+
+.header__theme-menu-button {
+  width: 70px;
+  height: 26px;
+  background-color: transparent;
+  border: 0;
+  color: #ff0070;
+  font-family: 'IBM Plex Mono', serif;
+  font-size: 18px;
+  line-height: 18px;
+  text-transform: lowercase;
+}
+
+.header__theme-menu-button:focus {
+  outline: 1px solid #ff0070;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+.title {
+  grid-row: 2;
+  justify-self: start;
+  align-self: center;
+  width: 759px;
+  height: 130px;
+  color: #db00ff;
+  font-family: 'IBM Plex Mono', serif;
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  font-weight: bold;
+  text-shadow: 4px 4px 1px #ff0070;
+}
+
+.header__description {
+  grid-row: 3;
+  justify-self: end;
+  align-self: center;
+  width: 491px;
+  height: 71px;
+}
+
+.title-decor {
+  background-color: #ff0070;
+  line-height: 23px;
+  font-family: 'IBM Plex Mono', serif;
+  font-size: 18px;
+  font-weight: bold;
 }
