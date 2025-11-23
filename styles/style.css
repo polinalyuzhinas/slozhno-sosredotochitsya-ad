@@ -116,7 +116,7 @@
 .header__description {
   grid-row: 3;
   display: grid;
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: 6fr 1fr;
   justify-self: center;
   align-self: start;
   inline-size: 100%;
@@ -132,17 +132,21 @@
 }
 
 .title-decor {
-  margin-bottom: var(--margin-answer-text);
+  margin-block-end: var(--margin-answer-text);
   background-color: var(--accent-color);
   font-family: var(--main-font), serif;
   font-size: var(--main-font-size);
   font-weight: var(--bold-font);
-  line-height: var(--accent-line-height);
+  line-height: var(--main-line-height);
   color: var(--accent-text-color);
 }
 
 .horizontal-answers-page:has(.gallery) .title-decor {
-  margin-bottom: 0;
+  margin-block-end: 0;
+}
+
+.header .title-decor {
+  margin-block-end: 0;
 }
 
 .horizontal-answers-page:has(.gallery) {
@@ -187,6 +191,7 @@
   color: var(--text-color);
   font-family: var(--main-font), serif;
   font-size: var(--main-font-size);
+  line-height: var(--main-line-height);
 }
 
 .main-link {
@@ -274,7 +279,7 @@
   }
 
   .header {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   .title {
@@ -287,8 +292,8 @@
   }
 
   .rec-indicator::after {
-    margin-left: 10px;
-    margin-right: 9px;
+    margin-inline-start: 10px;
+    margin-inline-end: 9px;
   }
 
   .header__description {
@@ -349,7 +354,7 @@
   }
 
   .header__description {
-    margin-top: 10px;
+    margin-block-start: 10px;
     grid-template-columns: 1fr;
   }
 
