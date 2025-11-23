@@ -15,8 +15,8 @@
 
 .theme-dark .rec-indicator {
   position: absolute;
-  right: 25px;
-  top: 20px;
+  top: var(--decor-corner-top);
+  right: var(--decor-corner-right);
   font-family: var(--main-font), serif;
   font-size: var(--main-font-size);
   text-transform: uppercase;

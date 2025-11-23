@@ -14,8 +14,17 @@
   --main-font: "IBM Plex Mono";
   --main-font-size: 18px;
   --bold-font: bold;
+  --title-line-height: 82.5%;
+  --accent-line-height: 23.4px;
 
+  --footer-header-width: 375px;
+  --footer-header-height: 100vh;
   --main-gap: 20px;
   --global-gap: 80px;
   --global-padding: 60px 20px;
+  --header-padding: 10px;
+  --decor-corner-top: 10px;
+  --decor-corner-bottom: 10px;
+  --decor-corner-right: 10px;
+  --decor-corner-left: 10px;
 }

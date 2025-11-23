@@ -1,8 +1,6 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+/* Основные стили проекта. Это стили для тёмной темы */
 
 .page {
-  width: 1024px;
-  height: 768px;
   background-image: var(--background-image);
   background-position: center;
   background-size: cover;
@@ -13,20 +11,21 @@
 .header {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  padding: 20px 20px 20px 0px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 55px;
+  min-inline-size: var(--footer-header-width);
+  block-size: var(--footer-header-height);
+  padding: var(--header-padding);
 }
 
 .decorated-zone {
   position: relative;
-  margin: 20px 20px;
-  width: 984px;
-  height: 728px;
 }
 
 .rec-indicator {
   position: absolute;
-  right: 25px;
-  top: 20px;
+  top: var(--decor-corner-top);
+  right: var(--decor-corner-right);
   font-family: var(--main-font), serif;
   font-size: var(--main-font-size);
   text-transform: uppercase;
@@ -36,8 +35,6 @@
 .rec-indicator::after {
   content: '';
   display: inline-block;
-  margin-left: 10px;
-  margin-right: 9px;
   width: 9px;
   height: 9px;
   background-color: var(--accent-color);
@@ -53,23 +50,23 @@
 }
 
 .decorated-zone::before {
-  top: 20px;
-  right: 20px;
+  top: var(--decor-corner-top);
+  right: var(--decor-corner-right);
   border-top: 2px solid var(--accent-color);
   border-right: 2px solid var(--accent-color);
 }
 
 .decorated-zone::after {
-  bottom: 20px;
-  left: 20px;
+  bottom: var(--decor-corner-bottom);
+  left: var(--decor-corner-left);
   border-bottom: 2px solid var(--accent-color);
   border-left: 2px solid var(--accent-color);
 }
 
 .header__theme-menu {
-  grid-row: 1;
-  justify-self: center;
-  align-self: start;
+  grid-row: 1; 
+  justify-self: end;
+  align-self: end;
 }
 
 .header__theme-menu-button {
@@ -99,6 +96,7 @@
 
 .header__theme-menu-list {
   display: flex;
+  flex-direction: column;
   gap: 10px;
   list-style: none;
 }
@@ -107,21 +105,22 @@
   grid-row: 2;
   justify-self: start;
   align-self: center;
-  width: 759px;
-  height: 130px;
   color: var(--title-color);
+  line-height: var(--title-line-height);
   font-family: var(--main-font), serif;
-  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
   font-weight: var(--bold-font);
   text-shadow: 4px 4px 1px var(--accent-color);
 }
 
 .header__description {
   grid-row: 3;
-  justify-self: end;
-  align-self: center;
-  width: 491px;
-  height: 71px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  justify-self: center;
+  align-self: start;
+  inline-size: 100%;
+  height: min-content;
 }
 
 .main {
@@ -132,6 +131,7 @@
 
 .title-decor {
   background-color: var(--accent-color);
+  line-height: var(--accent-line-height);
   font-family: var(--main-font), serif;
   font-size: var(--main-font-size);
   font-weight: var(--bold-font);
@@ -254,4 +254,48 @@
   margin: auto;
   text-align: center;
   text-shadow: 2px 2px 1px var(--accent-color);
+}
+
+/* стили для экрана больше 768px по ширине */
+@media (width >= 768px) {
+  :root {
+    --decor-corner-top: 20px;
+    --decor-corner-bottom: 20px;
+    --decor-corner-right: 20px;
+    --decor-corner-left: 20px;
+  }
+
+  .title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .rec-indicator {
+    right: 25px;
+    top: 20px;
+  }
+
+  .rec-indicator::after {
+    margin-left: 10px;
+    margin-right: 9px;
+  }
+
+  .header__description {
+    justify-self: end;
+    align-self: start;
+    inline-size: 50%;
+  }
+  
+
+}
+
+/* стили для экрана больше 1024px по ширине */
+@media (width >= 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
 }
