@@ -141,15 +141,19 @@
   color: var(--accent-text-color);
 }
 
-.horizontal-answers-page:has(.gallery) .title-decor {
+.horizontal-answers-page:has(.gallery) .title-decor { /* убрать margin внизу у текста с декором в блоке с галереей */
   margin-block-end: 0;
 }
 
-.header .title-decor {
+.header .title-decor { /* убрать margin внизу у описания в шапке */
   margin-block-end: 0;
 }
 
-.horizontal-answers-page:has(.gallery) {
+.vertical-answers-page:has(.answer-item) .title-decor { /* убрать margin внизу у первого заголовка на третьей странице */
+  margin-block-end: 0;
+}
+
+.horizontal-answers-page:has(.gallery) { 
   gap: var(--footer-header-padding);
 }
 
