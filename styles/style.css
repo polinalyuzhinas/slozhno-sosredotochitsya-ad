@@ -16,7 +16,6 @@
   min-inline-size: var(--footer-header-width);
   block-size: var(--footer-header-height);
   padding: var(--footer-header-padding);
-  padding-left: 0;
 }
 
 .decorated-zone {
@@ -138,6 +137,7 @@
   font-family: var(--main-font), serif;
   font-size: var(--main-font-size);
   font-weight: var(--bold-font);
+  line-height: var(--accent-line-height);
   color: var(--accent-text-color);
 }
 
@@ -273,6 +273,10 @@
     --decor-corner-left: 20px;
   }
 
+  .header {
+    padding-left: 0;
+  }
+
   .title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
@@ -304,7 +308,7 @@
 
   .gallery {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: auto 1fr auto;
     grid-template-areas: 
     "sunset sunset ice-cream"
     "tape books ice-cream"
@@ -345,6 +349,7 @@
   }
 
   .header__description {
+    margin-top: 10px;
     grid-template-columns: 1fr;
   }
 
