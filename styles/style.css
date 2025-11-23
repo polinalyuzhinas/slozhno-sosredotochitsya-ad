@@ -15,7 +15,7 @@
   gap: 55px;
   min-inline-size: var(--footer-header-width);
   block-size: var(--footer-header-height);
-  padding: var(--header-padding);
+  padding: var(--footer-header-padding);
 }
 
 .decorated-zone {
@@ -125,17 +125,28 @@
 
 .main {
   display: grid;
-  gap: var(--global-gap);
+  gap: var(--gap-between-sections);
   padding: var(--global-padding);
+  max-inline-size: 100%;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .title-decor {
+  margin-bottom: var(--margin-answer-text);
   background-color: var(--accent-color);
   line-height: var(--accent-line-height);
   font-family: var(--main-font), serif;
   font-size: var(--main-font-size);
   font-weight: var(--bold-font);
   color: var(--accent-text-color);
+}
+
+.horizontal-answers-page:has(.gallery) .title-decor {
+  margin-bottom: 0;
+}
+
+.horizontal-answers-page:has(.gallery) {
+  gap: var(--footer-header-padding);
 }
 
 .answer-list {
@@ -145,27 +156,24 @@
 
 .vertical-answers-page {
   display: grid;
-  grid-template-columns: 315px auto;
   gap: var(--main-gap);
+  max-inline-size: 100%;
 }
 
 .horizontal-answers-page {
   display: grid;
-  grid-template-rows: min-content 1fr;
   gap: var(--main-gap);
+  max-inline-size: 100%;
 }
 
 .vertical-answers-page > .answer-list {
   display: grid;
   gap: var(--main-gap);
-  width: 649px;
 }
 
 .horizontal-answers-page > .answer-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   gap: var(--main-gap);
-  width: 984px;
 }
 
 .question-title {
@@ -199,55 +207,52 @@
 }
 
 .gallery {
-  height: 1028px;
+  inline-size: 100%;
   display: grid;
-  gap: var(--main-gap);
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-areas: 
-    "sunset sunset ice-cream"
-    "tape books ice-cream"
-    "tape street street";
+  grid-template-rows: repeat(5, auto);
+  gap: var(--footer-header-padding);
 }
 
 .img-sunset {
-  grid-area: sunset;
+  grid-row: 1;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .img-ice-cream {
-  grid-area: ice-cream;
+  grid-row: 2;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .img-tape {
-  grid-area: tape;
+  grid-row: 3;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .img-books {
-  grid-area: books;
+  grid-row: 4;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .img-street {
-  grid-area: street;
+  grid-row: 5;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .footer {
   display: flex;
-  padding: 20px;
+  min-inline-size: var(--footer-header-width);
+  block-size: var(--footer-header-height);
+  padding: var(--footer-header-padding);
 }
 
 .footer > .title {
@@ -259,6 +264,9 @@
 /* стили для экрана больше 768px по ширине */
 @media (width >= 768px) {
   :root {
+    --global-padding: 60px 20px;
+    --footer-header-padding: 20px;
+    --gap-between-sections: 80px;
     --decor-corner-top: 20px;
     --decor-corner-bottom: 20px;
     --decor-corner-right: 20px;
@@ -284,8 +292,44 @@
     align-self: start;
     inline-size: 50%;
   }
-  
 
+  .vertical-answers-page {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+    "sunset sunset ice-cream"
+    "tape books ice-cream"
+    "tape street street";
+  }
+
+  .img-books {
+    grid-area: books;
+    object-fit: cover;
+  }
+
+  .img-ice-cream {
+    grid-area: ice-cream;
+    object-fit: cover;
+  }
+
+  .img-street {
+    grid-area: street;
+    object-fit: cover;
+  }
+
+  .img-sunset {
+    grid-area: sunset;
+    object-fit: cover;
+  }
+
+  .img-tape {
+    grid-area: tape;
+    object-fit: cover;
+  }
 }
 
 /* стили для экрана больше 1024px по ширине */
@@ -297,5 +341,13 @@
 
   .header__theme-menu-list {
     flex-direction: row;
+  }
+
+  .horizontal-answers-page {
+    grid-template-rows: min-content 1fr;
+  }
+
+  .horizontal-answers-page > .answer-list {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
